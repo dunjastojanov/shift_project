@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const colors = {
-  lightGrey: "#F3E8E8",
+  white: "#FFFFFF",
   purple: "#4C0E7D"
 }
 
@@ -21,10 +21,30 @@ export const styles = StyleSheet.create({
       justifyContent: 'space-evenly',
       bottom: 0,
       paddingHorizontal: 15,
-      backgroundColor: colors.lightGrey
+      backgroundColor: colors.white
     },
     navIcon: {
       width: 30,
       height: 30
-    }
+    },
+    headerContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 10,
+      backgroundColor: colors.white
+    },
+    headerText: {
+      fontSize: 34,
+      paddingBottom: 3
+    },
+    profilePortraitContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    profilePortraitImage: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 50,
+      overflow: 'hidden',
+    },
   });
