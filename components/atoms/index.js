@@ -1,2 +1,6 @@
 export * from "./text/Text.js"
+export * from "./icons"
+export * from "./labels/Label.js"
 export * from "./portraits/ProfilePortrait.js"
+export * from "./portraits/IconPortrait.js"
+export * from "./buttons/Button.js"
