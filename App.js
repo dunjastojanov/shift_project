@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import {HomePage, CalendarPage, GroupPage, NotificationPage, ProfilePage} from './components/pages'
+import {HomePage, CalendarPage, NotificationPage, ProfilePage, GroupStack} from './components/pages'
 import { NavBar } from './components/NavBar';
 import { Text } from 'react-native';
 
@@ -26,7 +26,9 @@ export default function App() {
           headerTitle: () => <Header />,
           headerStyle: {height: 160}
         }}/>
-        <Tab.Screen name="group" component={GroupPage}/>
+        <Tab.Screen name="group" component={GroupStack} options={{
+          headerShown: false
+        }}/>
         <Tab.Screen name="profile" component={ProfilePage}/>
       </Tab.Navigator>
     </NavigationContainer>

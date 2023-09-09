@@ -4,11 +4,27 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from './Styles';
 import React, { useEffect, useState } from 'react';
 import { BackIcon } from './atoms/icons/BackIcon';
-import { ProfilePortrait } from './atoms';
+import { ProfilePortrait, IconButton } from './atoms';
+
+
+const headerTranslation = {
+  "GroupOverviewPage": "Groups",
+  "GroupEditPage": "Edit Group",
+  "GroupAddPage": "Add New Group"
+}
 
 export function Header() {
   const navigation = useNavigation();
   const [currentTab, setCurrentTab] = useState('');
+
+  function getHeaderText() {
+    const text = currentTab;
+
+    if (text in headerTranslation) 
+      return headerTranslation[text];
+    return text[0].toUpperCase() + currentTab.slice(1) + "s";
+  }
+  
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('state', (e) => {
@@ -17,6 +33,12 @@ export function Header() {
     });
     return unsubscribe;
   }, [navigation]);
+
+  const goBack = () => {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+    }
+  }
 
 
   if (currentTab === 'home') {
@@ -30,9 +52,10 @@ export function Header() {
   }
 
   if (currentTab) return <View style={styles.headerContainer}>
-    <BackIcon style={styles.headerIcon} />
-    <Text weight="regular" style={styles.headerText}>{currentTab[0].toUpperCase() + currentTab.slice(1) + "s"}</Text>
-
+    {navigation.canGoBack() && <IconButton onPress={goBack}><BackIcon style={styles.headerIcon} /></IconButton>}
+    <Text weight="regular" style={styles.headerText}>
+      {getHeaderText()}
+    </Text>
   </View>;
 
 }

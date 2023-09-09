@@ -16,7 +16,7 @@ export function ProfilePage() {
         <Label header={"Groups"} tags={["Surgery", "Pediatrics"]} color="black"/>
       </View>
 
-      <View style={{...styles.pageElementContainer, ...styles.profileButtonContainer}}>
+      <View style={{...styles.pageElementContainer, ...styles.buttonContainer}}>
 
         <Button text="Edit"/>
         <Button text="Delete"/>

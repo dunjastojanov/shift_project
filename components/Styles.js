@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     },
     pageElementContainer: {
       marginVertical: 15,
-      marginHorizontal: 30
+      marginHorizontal: 30,
     },
     navBar: {
       width: '100%',
@@ -88,8 +88,9 @@ export const styles = StyleSheet.create({
     },
     page: {
       flex: 1,
-      paddingBottom: 60
-    }, 
+      paddingBottom: 100,
+      flexDirection: 'column'
+    },
     homePage: {
     },
     profilePortraitContainer: {},
@@ -128,7 +129,7 @@ export const styles = StyleSheet.create({
     },
     overviewCardIconsContainer: {
       flexDirection: "row",
-      gap: gap,
+      gap: 20,
       alignItems: 'center',
 
     },
@@ -167,10 +168,35 @@ export const styles = StyleSheet.create({
       color: colors.white,
       fontSize: 14
     },
-    profileButtonContainer: {
+    buttonContainer: {
       flexDirection: 'row',
       gap: gap,
-      flexGrow: 1,
-      marginTop: 80
+    },
+    input: {
+      backgroundColor: colors.white,
+      borderRadius: 25,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      marginVertical: 10,
+      fontSize: 16,
+      ...dropShadow
+    },
+    inputLabel: {
+      fontSize:16,
+      paddingHorizontal: 10
+    },
+    listGroupCardContainer: {
+      flexDirection: 'column',
+      gap: 30,
+    },
+    listGroupCard: {
+      backgroundColor: colors.purple,
+      borderRadius: 25,
+      padding: 10
+    },
+    listGroupCardItem: {
+      margin: 15,
+      flexDirection: "row",
+      justifyContent: "space-between"
     }
   });
