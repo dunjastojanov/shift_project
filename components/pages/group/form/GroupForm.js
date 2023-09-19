@@ -1,10 +1,10 @@
-import { View } from "react-native";
-import { styles } from "../../Styles";
-import { Input, Button } from "../../atoms";
+import { View, ToastAndroid } from "react-native";
+import { styles } from "../../../../shared/Styles";
+import { Input, Button } from "../../../atoms";
 import { useState, useEffect, useContext } from "react";
-import api from "../../api";
-import { ListGroup } from "../../molecules";
-import { GroupContext } from "./GroupContext";
+import api from "../../../../shared/api";
+import { ListGroup } from "../../../molecules";
+import { GroupContext } from "../../../../shared/context/GroupContext";
 
 export function GroupForm({ group }) {
   const { groups, setGroups } = useContext(GroupContext);
@@ -22,16 +22,18 @@ export function GroupForm({ group }) {
     let dto = {
       id: data.id,
       name: data.name,
-      selected: selected.map((selected) => selected.id),
+      users: data.users,
     };
 
     if (!data.id) {
       api.post(`groups`, dto).then((result) => {
         setGroups([...groups, result.data]);
+        ToastAndroid.show(`Sucessfully added ${result.data.name}`, ToastAndroid.SHORT)
       });
     }
     api.put(`groups/${data.id}`, dto).then((result) => {
       setGroups([...groups.filter((group) => group.id !== result.data.id), result.data]);
+      ToastAndroid.show(`Sucessfully updated ${result.data.name}`, ToastAndroid.SHORT)
     });
   };
 

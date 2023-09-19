@@ -1,9 +1,7 @@
 import { Pressable } from "react-native";
 
-export function IconButton({children, onPress}) {
-
+export function IconButton({children, onPress, style}) {
     return (
-        <Pressable onPress={onPress}>{children}</Pressable>
+        <Pressable onPress={onPress} style={style}>{children}</Pressable>
     )
-    
 }

@@ -1,0 +1,101 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Dunja",
+      "lastName": "Stojanov",
+      "color": "purple",
+      "email": "dunjastojanov1@gmail.com"
+    },
+    {
+      "id": 2,
+      "firstName": "John",
+      "lastName": "Doe",
+      "color": "blue",
+      "email": "johndoe@gmail.com"
+    },
+    {
+      "id": 3,
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "color": "green",
+      "email": "janedoe@gmail.com"
+    },
+    {
+      "id": 4,
+      "firstName": "Michael",
+      "lastName": "Smith",
+      "color": "red",
+      "email": "michaelsmith@gmail.com"
+    },
+    {
+      "id": 5,
+      "firstName": "Sarah",
+      "lastName": "Johnson",
+      "color": "yellow",
+      "email": "sarahjohnson@gmail.com"
+    },
+    {
+      "id": 6,
+      "firstName": "James",
+      "lastName": "Brown",
+      "color": "orange",
+      "email": "jamesbrown@gmail.com"
+    },
+    {
+      "id": 7,
+      "firstName": "Anna",
+      "lastName": "Taylor",
+      "color": "pink",
+      "email": "annataylor@gmail.com"
+    },
+    {
+      "id": 8,
+      "firstName": "Robert",
+      "lastName": "Wilson",
+      "color": "brown",
+      "email": "robertwilson@gmail.com"
+    },
+    {
+      "id": 9,
+      "firstName": "Emily",
+      "lastName": "Clark",
+      "color": "teal",
+      "email": "emilyclark@gmail.com"
+    },
+    {
+      "id": 10,
+      "firstName": "Daniel",
+      "lastName": "Lee",
+      "color": "gold",
+      "email": "daniellee@gmail.com"
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "Surgery",
+      "users": [1, 4, 7, 10]
+    },
+    {
+      "id": 2,
+      "name": "Pediatrics",
+      "users": [2, 5, 8]
+    },
+    {
+      "id": 3,
+      "name": "Neurology",
+      "users": [3, 6, 9]
+    }
+  ],
+  "notifications": [
+    {
+      "header": "Schedule for next week has been altered",
+      "text": "Dunja Stojanov has switched with Jana Stojanov on night shift on May 3rd."
+    },
+    {
+      "header": "New schedule is due in 3 days",
+      "text": "New schedule is due in 3 days. Please start working on the schedule."
+    }
+  ]
+}

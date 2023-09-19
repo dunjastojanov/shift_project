@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { ScrollView, View } from "react-native";
-import { styles } from "../../../Styles";
+import { styles } from "../../../../shared/Styles";
 import { OverviewCard } from "../../../molecules/cards/OverviewCard";
-import { GroupContext } from "../utils/GroupContext";
+import { GroupContext } from "../../../../shared/context/GroupContext";
 import { Button } from "../../../atoms"
 
 
