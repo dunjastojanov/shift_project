@@ -1,10 +1,9 @@
 import { useContext, useEffect } from "react";
 import { ScrollView, View } from "react-native";
 import { styles } from "../../../../shared/Styles";
-import { OverviewCard } from "../../../molecules/cards/OverviewCard";
+import { OverviewCard } from "../../../organisms";
 import { GroupContext } from "../../../../shared/context/GroupContext";
 import { Button } from "../../../atoms"
-
 
 export function GroupOverviewPage({ navigation }) {
   const {groups, setGroups, fetchGroups} = useContext(GroupContext);

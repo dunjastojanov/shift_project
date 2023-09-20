@@ -1,10 +1,11 @@
-import { View, ToastAndroid } from "react-native";
+import { useContext, useEffect, useState } from "react";
+import { ToastAndroid, View, ScrollView } from "react-native";
 import { styles } from "../../../../shared/Styles";
-import { Input, Button } from "../../../atoms";
-import { useState, useEffect, useContext } from "react";
 import api from "../../../../shared/api";
-import { ListGroup } from "../../../molecules";
 import { GroupContext } from "../../../../shared/context/GroupContext";
+import { Button } from "../../../atoms";
+import { Input } from "../../../molecules";
+import { ListGroup } from "../../../organisms";
 
 export function GroupForm({ group }) {
   const { groups, setGroups } = useContext(GroupContext);
@@ -28,40 +29,49 @@ export function GroupForm({ group }) {
     if (!data.id) {
       api.post(`groups`, dto).then((result) => {
         setGroups([...groups, result.data]);
-        ToastAndroid.show(`Sucessfully added ${result.data.name}`, ToastAndroid.SHORT)
+        ToastAndroid.show(
+          `Sucessfully added ${result.data.name}`,
+          ToastAndroid.SHORT
+        );
       });
     }
     api.put(`groups/${data.id}`, dto).then((result) => {
-      setGroups([...groups.filter((group) => group.id !== result.data.id), result.data]);
-      ToastAndroid.show(`Sucessfully updated ${result.data.name}`, ToastAndroid.SHORT)
+      setGroups([
+        ...groups.filter((group) => group.id !== result.data.id),
+        result.data,
+      ]);
+      ToastAndroid.show(
+        `Sucessfully updated ${result.data.name}`,
+        ToastAndroid.SHORT
+      );
     });
   };
 
   return (
-    <View style={{ ...styles.page }}>
-      <View style={styles.pageElementContainer}>
-        <Input
-          label="Name"
-          value={data.name}
-          onChangeText={(text) => {
-            setData({ ...data, name: text });
-          }} />
-      </View>
-      <View style={styles.pageElementContainer}>
-        <ListGroup
-          group={data}
-          setGroup={setData}
-          users={users} />
-      </View>
+    <ScrollView style={{ ...styles.page }}>
+      <View style={{ ...styles.page }}>
+        <View style={styles.pageElementContainer}>
+          <Input
+            label="Name"
+            value={data.name}
+            onChangeText={(text) => {
+              setData({ ...data, name: text });
+            }}
+          />
+        </View>
+        <View style={styles.pageElementContainer}>
+          <ListGroup group={data} setGroup={setData} users={users} />
+        </View>
 
-      <View
-        style={{
-          ...styles.pageElementContainer,
-          ...styles.buttonContainer,
-        }}
-      >
-        <Button text="Save" onPress={onSave} />
+        <View
+          style={{
+            ...styles.pageElementContainer,
+            ...styles.buttonContainer,
+          }}
+        >
+          <Button text="Save" onPress={onSave} />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }

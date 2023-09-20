@@ -23,15 +23,11 @@ export const colors = {
   turquoise: "#40E0D0",
 };
 
-const transparentColors = {
+export const transparentColors = {
   black: "#00000066",
   white: "#FFFFFF66",
 };
 
-const cardPadding = 15;
-const cardBorderRadius = 20;
-const cardTopMargin = 5;
-const gap = 10;
 
 export const dropShadow = {
   shadowColor: "black",
@@ -65,18 +61,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  profilePortraitImage: {
-    width: "100%",
-    height: "100%",
-    overflow: "hidden",
-  },
+
 
   page: {
     flex: 1,
     paddingBottom: 100,
     flexDirection: "column",
   },
-  homePage: {},
 
   profileLabelContainer: {
     marginHorizontal: 40,
@@ -89,7 +80,7 @@ export const styles = StyleSheet.create({
 
   buttonContainer: {
     flexDirection: "row",
-    gap: gap,
+    gap: 10,
   },
 
 

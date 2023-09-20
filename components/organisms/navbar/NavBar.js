@@ -1,4 +1,7 @@
-import { Pressable, View, StyleSheet } from "react-native";
+import { useContext } from "react";
+import { Pressable, StyleSheet, View } from "react-native";
+import { colors } from "../../../shared/Styles";
+import { LoggedUserContext } from "../../../shared/context/LoggedUserContext";
 import {
   CalendarIcon,
   GroupIcon,
@@ -7,8 +10,6 @@ import {
   ProfileIcon,
   RequestIcon,
 } from "../../atoms/icons";
-import { useContext } from "react";
-import { LoggedUserContext } from "../../../shared/context/LoggedUserContext";
 
 export function NavBar({ state, descriptors, navigation }) {
   const { isLoggedIn, isManager, isWorker } = useContext(LoggedUserContext);
@@ -96,5 +97,5 @@ const styles = StyleSheet.create({
   navIcon: {
     width: 30,
     height: 30,
-  }
+  },
 });

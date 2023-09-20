@@ -1,8 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { colors } from "../../../shared/Styles";
 import { LoggedUserContext } from "../../../shared/context/LoggedUserContext";
-import { BackIcon, IconButton, ProfilePortrait, Text } from "../../atoms";
+import { BackIcon, IconButton, Text } from "../../atoms";
+import { ProfilePortrait } from "../../molecules";
 
 const headerTranslation = {
   GroupOverviewPage: "Groups",
@@ -41,7 +43,7 @@ export function Header() {
   }, [navigation]);
 
   const goBack = () => {
-    if (navigation.canGoBack() && text in headerTranslation) {
+    if (navigation.canGoBack() && currentTab in headerTranslation) {
       navigation.goBack();
     }
   };
@@ -66,12 +68,12 @@ export function Header() {
     );
   }
 
-  if (currentTab)
+  if (currentTab && currentTab !== "login")
     return (
       <View style={styles.headerContainer}>
         {navigation.canGoBack() && (
           <IconButton onPress={goBack}>
-            <BackIcon/>
+            <BackIcon />
           </IconButton>
         )}
         <Text weight="regular" style={styles.headerText}>

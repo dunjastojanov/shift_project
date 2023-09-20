@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import { dropShadow } from "../../../shared/Styles";
+import { dropShadow, colors } from "../../../shared/Styles";
 import { Label } from "../../atoms";
 import { HalfDayPill } from "./HalfDayPill";
 

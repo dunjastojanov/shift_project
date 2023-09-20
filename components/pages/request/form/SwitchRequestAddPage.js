@@ -1,11 +1,9 @@
-import { styles } from "../../../../shared/Styles";
-import { ScrollView, View } from "react-native";
-import { MonthSelect } from "../../../molecules/selects/MonthSelect";
 import { useState } from "react";
-import { DaySelect } from "../../../molecules/selects/DaySelect";
-import { Button, Label, RadioButton } from "../../../atoms";
-import { CoworkerSelect } from "../../../molecules/selects/CoworkerSelect";
+import { ScrollView, View } from "react-native";
+import { styles } from "../../../../shared/Styles";
 import { UserContextProvider } from "../../../../shared/context/UserContext";
+import { Button, Label, RadioButton } from "../../../atoms";
+import { CoworkerSelect, DaySelect, MonthSelect } from "../../../organisms";
 
 export function SwitchRequestAddPage({}) {
   const [startMonth, setStartMonth] = useState("January");

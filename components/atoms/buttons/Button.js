@@ -1,5 +1,5 @@
 import { Pressable as NativeButton, StyleSheet } from "react-native";
-import { colors } from "../../../shared/Styles";
+import { colors, dropShadow } from "../../../shared/Styles";
 import { Text } from "../text/Text";
 
 export function Button({ text, onPress, type = "primary", style }) {

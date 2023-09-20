@@ -1,7 +1,8 @@
 import { View, ToastAndroid } from "react-native";
 import { styles } from "../../../../shared/Styles";
 
-import { ColorInput, Input, ProfilePortrait, Button } from "../../../atoms";
+import {  Button } from "../../../atoms";
+import {ColorInput, Input, ProfilePortrait} from "../../../molecules"
 import { useState } from "react";
 
 export function ProfileForm({ user }) {

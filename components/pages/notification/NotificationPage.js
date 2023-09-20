@@ -1,8 +1,7 @@
-import { View, ScrollView } from "react-native";
-import { NextShiftCard } from "../../molecules/cards/NextShiftCard";
+import { ScrollView, View } from "react-native";
 import { styles } from "../../../shared/Styles";
+import { NotificationsList } from "../../organisms";
 import { NotificationContextProvider } from "./../../../shared/context/NotificationContext";
-import { NotificationsList } from "../../molecules";
 
 export function NotificationPage() {
   return (

@@ -1,6 +1,6 @@
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Text } from "../text/Text";
-import { colors } from "../../../shared/Styles";
+import { colors, dropShadow } from "../../../shared/Styles";
 
 export function Label({
   header,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   labelTagContainer: {
     flexDirection: "row",
-    gap: gap,
+    gap: 10,
     marginTop: 5,
   },
   labelTag: {

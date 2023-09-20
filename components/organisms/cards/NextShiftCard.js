@@ -1,6 +1,6 @@
 import { View, StyleSheet } from "react-native";
 import { Label } from "../../atoms";
-import { dropShadow } from "../../../shared/Styles";
+import { dropShadow, colors } from "../../../shared/Styles";
 
 export function NextShiftCard() {
   return (
@@ -16,11 +16,11 @@ export function NextShiftCard() {
 const styles = StyleSheet.create({
   nextShiftCard: {
     backgroundColor: colors.orange,
-    padding: cardPadding,
-    borderRadius: cardBorderRadius,
+    padding: 15,
+    borderRadius: 20,
     ...dropShadow,
   },
   nextShiftCardContainer: {
-    marginTop: cardTopMargin,
+    marginTop: 5,
   },
 });

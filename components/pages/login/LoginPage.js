@@ -1,5 +1,6 @@
 import { View } from "react-native";
-import { Button, IconPortrait, Input, Label } from "../../atoms";
+import { Button, Label } from "../../atoms";
+import { IconPortrait, Input } from "../../molecules";
 import { styles } from "../../../shared/Styles";
 import { useContext, useEffect, useState } from "react";
 import { LoggedUserContext } from "../../../shared/context/LoggedUserContext";
@@ -9,11 +10,17 @@ export function LoginPage({ navigation }) {
 
   const { logInUser, isLoggedIn } = useContext(LoggedUserContext);
 
-useEffect(()=>{
-  if (isLoggedIn) {
-    navigation.navigate("home");
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigation.navigate("home");
+    }
+  }, [isLoggedIn]);
+
+  {
+     
+
+
   }
-}, [isLoggedIn])
 
   return (
     <View style={{ ...styles.page, ...styles.loginPage }}>
@@ -21,7 +28,6 @@ useEffect(()=>{
         <IconPortrait type="logo" size={150} />
         <Label header={"Shift"} color="black" headerSize={34} />
       </View>
-
       <View style={styles.pageElementContainer}>
         <Input label="Email" value={data.email} onChangeText={(text)=>setData({...data, email: text})}/>
       </View>
@@ -39,7 +45,7 @@ useEffect(()=>{
             logInUser(data);
           }}
         />
-      </View>
+      </View> 
     </View>
   );
 }

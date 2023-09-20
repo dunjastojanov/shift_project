@@ -1,7 +1,7 @@
 import { useFonts } from "expo-font";
 import { StyleSheet, TextInput, View } from "react-native";
-import { dropShadow } from "../../../shared/Styles";
-import { Text } from "../atoms";
+import { dropShadow, colors } from "../../../shared/Styles";
+import { Text } from "../../atoms";
 
 export const Input = ({
   label,

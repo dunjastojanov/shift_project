@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { colors } from "../../../shared/Styles";
 
 export function IconPortrait(props) {
@@ -16,6 +16,7 @@ export function IconPortrait(props) {
         width: size,
         height: size,
         backgroundColor: colors[color],
+        borderRadius: size,
       }}
     >
       {type === "notification" && (
@@ -68,7 +69,6 @@ export function IconPortrait(props) {
 
 const styles = StyleSheet.create({
   iconPortraitCircle: {
-    borderRadius: 75,
     justifyContent: "center",
     alignItems: "center",
   },

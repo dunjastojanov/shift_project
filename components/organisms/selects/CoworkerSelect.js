@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { Pressable, View } from "react-native";
 import { styles } from "../../../shared/Styles";
-import { Label, ProfilePortrait } from "../../atoms";
+import { Label } from "../../atoms";
+import { ProfilePortrait } from "../../molecules";
 import { UserContext } from "./../../../shared/context/UserContext";
 import { Select } from "./Select";
 

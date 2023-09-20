@@ -1,15 +1,17 @@
-import { ScrollView, View } from "react-native";
-import { OverviewCard } from "../../../molecules/cards/OverviewCard";
-import { styles } from "../../../../shared/Styles";
-import { Button } from "../../../atoms/buttons/Button";
 import { useContext, useEffect, useState } from "react";
-import api from './../../../../shared/api';
+import { ScrollView, View } from "react-native";
+import { styles } from "../../../../shared/Styles";
 import { GroupContext } from "../../../../shared/context/GroupContext";
+import { LoggedUserContext } from "../../../../shared/context/LoggedUserContext";
+import { Button } from "../../../atoms";
+import { OverviewCard } from "../../../organisms";
+import api from './../../../../shared/api';
 
 export function CalendarOverviewPage({navigation}) {
   const [calendars, setCalendars] = useState([])
 
   const {findGroupById} = useContext(GroupContext)
+  const {isManager} = useContext(LoggedUserContext)
 
   useEffect(()=> {
     api.get("/schedules").then(res=> {
@@ -27,6 +29,9 @@ export function CalendarOverviewPage({navigation}) {
                 header={findGroupById(calendar.group).name}
                 subheader={calendar.month}
                 key={index}
+                onEdit={isManager() ? ()=> {}: null}
+                onDelete={isManager() ? ()=> {}: null}
+                onExport={isManager() ? ()=> {}: ()=>{}}
               />
             );
           })}

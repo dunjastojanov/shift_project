@@ -3,7 +3,8 @@ import { View } from "react-native";
 import { styles } from "../../../../shared/Styles";
 import { GroupContext } from "../../../../shared/context/GroupContext";
 import { LoggedUserContext } from "../../../../shared/context/LoggedUserContext";
-import { Button, Label, ProfilePortrait } from "../../../atoms";
+import { Button, Label } from "../../../atoms";
+import { ProfilePortrait } from "../../../molecules";
 
 export function ProfileOverviewPage({navigation}) {
   const {loggedUser, logOutUser} = useContext(LoggedUserContext);

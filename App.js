@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { NavBar } from "./components/NavBar";
+import { NavBar, Header } from "./components/organisms";
 import {
   CalendarStack,
   GroupStack,
@@ -12,7 +12,6 @@ import {
 } from "./components/pages";
 
 import React from "react";
-import { Header } from "./components/Header";
 import { GroupContextProvider } from "./shared/context/GroupContext";
 import {
   LoggedUserContextProvider

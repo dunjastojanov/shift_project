@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
-import { glow } from "../../../shared/Styles";
-import { IconButton, ProfilePortrait } from "../../atoms";
+import { glow, transparentColors } from "../../../shared/Styles";
+import { IconButton } from "../../atoms";
+import { ProfilePortrait } from "../../molecules";
 import { useState, useEffect, useContext } from "react";
 import api from "../../../shared/api";
 import { GroupContext } from "../../../shared/context/GroupContext";

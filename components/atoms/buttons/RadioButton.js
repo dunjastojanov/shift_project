@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { Button } from "./Button";
+import { colors } from "../../../shared/Styles";
 
 export function RadioButton({ type, onPress }) {
   if (type === "day")

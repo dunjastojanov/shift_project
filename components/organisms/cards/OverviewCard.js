@@ -1,9 +1,15 @@
 import { View, StyleSheet } from "react-native";
-import { dropShadow } from "../../../shared/Styles";
-import { DeleteIcon, EditIcon, IconButton, Label } from "../../atoms";
+import { dropShadow, colors } from "../../../shared/Styles";
+import {
+  DeleteIcon,
+  EditIcon,
+  ExportIcon,
+  IconButton,
+  Label,
+} from "../../atoms";
 
 export function OverviewCard(props) {
-  const { header, subheader, onEdit, onDelete } = props;
+  const { header, subheader, onEdit, onDelete, onExport } = props;
 
   return (
     <View style={styles.overviewCard}>
@@ -26,6 +32,12 @@ export function OverviewCard(props) {
             <EditIcon />
           </IconButton>
         )}
+
+        {onExport && (
+          <IconButton onPress={onExport}>
+            <ExportIcon />
+          </IconButton>
+        )}
       </View>
     </View>
   );
@@ -35,9 +47,9 @@ const styles = StyleSheet.create({
   overviewCard: {
     flexDirection: "row",
     backgroundColor: colors.white,
-    borderRadius: cardBorderRadius,
-    padding: cardPadding,
-    marginTop: cardTopMargin,
+    borderRadius: 20,
+    padding: 15,
+    marginTop: 5,
     justifyContent: "space-between",
     alignItems: "center",
     ...dropShadow,

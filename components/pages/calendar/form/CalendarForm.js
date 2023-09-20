@@ -1,15 +1,16 @@
-import { View, ScrollView } from "react-native";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { ScrollView, View, StyleSheet } from "react-native";
+import { colors, dropShadow, styles as globalStyles } from "../../../../shared/Styles";
+import { getDays } from "../../../../shared/utils";
+import { Button, IconButton, Label } from "../../../atoms";
+import { ProfilePortrait } from "../../../molecules";
 import {
-  MonthSelect,
   GroupSelect,
   Legend,
+  MonthSelect,
   UserTrack,
-} from "../../../molecules";
-import { styles } from "../../../../shared/Styles";
-import { Button, IconButton, Label, ProfilePortrait } from "../../../atoms";
+} from "../../../organisms";
 import { getDaysInMonth } from "./../../../../shared/utils";
-import { getDays } from "../../../../shared/utils";
 
 export function CalendarForm({ calendar }) {
   const [data, setData] = useState({
@@ -17,7 +18,7 @@ export function CalendarForm({ calendar }) {
     group: 1,
     schedule: getDays(getDaysInMonth("May")),
   });
-  
+
   const [page, setPage] = useState(1);
 
   const [selected, setSelected] = useState(null);
@@ -44,16 +45,12 @@ export function CalendarForm({ calendar }) {
     } else setExpanded({ time: time, index: index });
   }
 
-  useEffect(()=>{
-    console.log(JSON.stringify(data))
-  }, [data])
-
   return (
-    <ScrollView style={styles.page}>
-      <View style={styles.page}>
+    <ScrollView style={globalStyles.page}>
+      <View style={globalStyles.page}>
         {page === 1 && (
           <View>
-            <View style={styles.pageElementContainer}>
+            <View style={globalStyles.pageElementContainer}>
               <MonthSelect
                 month={data.month}
                 onMonthChange={(month) => {
@@ -66,7 +63,7 @@ export function CalendarForm({ calendar }) {
               />
             </View>
 
-            <View style={styles.pageElementContainer}>
+            <View style={globalStyles.pageElementContainer}>
               <GroupSelect
                 group={data.group}
                 onGroupChange={(group) => {
@@ -78,8 +75,8 @@ export function CalendarForm({ calendar }) {
             {data.month && data.group && (
               <View
                 style={{
-                  ...styles.pageElementContainer,
-                  ...styles.buttonContainer,
+                  ...globalStyles.pageElementContainer,
+                  ...globalStyles.buttonContainer,
                 }}
               >
                 <Button text={"Next"} onPress={() => setPage(2)} />
@@ -90,7 +87,7 @@ export function CalendarForm({ calendar }) {
 
         {page === 2 && (
           <View>
-            <View style={styles.pageElementContainer}>
+            <View style={globalStyles.pageElementContainer}>
               <Label
                 subheaders={[`${data.group}, ${data.month}`]}
                 subheaderSize={34}
@@ -99,7 +96,7 @@ export function CalendarForm({ calendar }) {
             </View>
 
             <UserTrack select={select} selected={selected} group={data.group} />
-            <View style={styles.pageElementContainer}>
+            <View style={globalStyles.pageElementContainer}>
               <Legend />
             </View>
 
@@ -178,8 +175,8 @@ export function CalendarForm({ calendar }) {
 
             <View
               style={{
-                ...styles.pageElementContainer,
-                ...styles.buttonContainer,
+                ...globalStyles.pageElementContainer,
+                ...globalStyles.buttonContainer,
               }}
             >
               <Button text="Add Schedule" />
@@ -190,3 +187,54 @@ export function CalendarForm({ calendar }) {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  dayElement: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  dayPill: {
+    flexDirection: "row",
+    width: "80%",
+    marginVertical: 5,
+    marginHorizontal: 15,
+    minHeight: 36,
+  },
+  dayPillDay: {
+    flexDirection: "row",
+    backgroundColor: colors.orange,
+    width: "50%",
+    overflow: "hidden",
+    paddingVertical: 5,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+    ...dropShadow,
+  },
+  dayPillNight: {
+    flexDirection: "row",
+    overflow: "hidden",
+    backgroundColor: colors.navy,
+    width: "50%",
+    paddingVertical: 5,
+    ...dropShadow,
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  dayElementHeader: {
+    width: 45,
+    textAlign: "right",
+  },
+  dayPillCollapsed: {
+    width: 0,
+    borderRadius: 0,
+  },
+  dayPillExpanded: {
+    width: "100%",
+    borderRadius: 20,
+    overflow: "visible",
+    flexWrap: "wrap",
+  },
+  dayPillIcon: {
+    marginHorizontal: 5,
+  },
+});

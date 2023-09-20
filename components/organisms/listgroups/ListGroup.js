@@ -1,5 +1,4 @@
-import { View } from "react-native";
-import { styles } from "../../../shared/Styles";
+import { View, StyleSheet } from "react-native";
 import { ListGroupCard } from "../cards/ListGroupCard";
 
 export function ListGroup(props) {
